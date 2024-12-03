@@ -1,0 +1,10 @@
+.hero-container{
+    display: flex;
+    width: 100vw;
+    height: 70vh;
+background-color:var(--background-color)
+}
+
+#map-background{
+    opacity: 50%;
+}
