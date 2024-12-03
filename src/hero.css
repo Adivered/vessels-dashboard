@@ -2,9 +2,20 @@
     display: flex;
     width: 100vw;
     height: 70vh;
-background-color:var(--background-color)
+background-color:var(--background-color);
+justify-content: center;
+align-items: center;
 }
 
 #map-background{
-    opacity: 50%;
+    opacity: 40%;
+}
+
+.footer-container{
+    background-color: var(--primary-color);
+    width: 100vw;
+    height: 20vh;
+    -webkit-box-shadow: 0px -3px 5px 0px rgba(255,136,0,0.69);
+    -moz-box-shadow: 0px -3px 5px 0px rgba(255,136,0,0.69);
+    box-shadow: 0px -3px 5px 0px rgba(255,136,0,0.69);
 }
