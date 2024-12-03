@@ -1,0 +1,348 @@
+[
+    {
+      "ship_number": 1,
+      "ship_name": "The Voyager",
+      "serial_number": "SN12345",
+      "ship_kind": "Cargo",
+      "captain_name": "John Smith",
+      "year_built": 2015,
+      "capacity": 50000,
+      "current_location": "Los Angeles, United States",
+      "status": "En Route",
+      "price": {
+        "amount": 120,
+        "currency": "USD",
+        "unit": "millions",
+        "description": "Price per Cargo Ship"
+      },
+      "cost_per_unit": {
+        "amount": 500,
+        "currency": "USD",
+        "unit": "ton",
+        "description": "Cost per ton of cargo"
+      },
+      "purpose": "Transports bulk goods internationally, capable of handling large amounts of various types of cargo.",
+      "route": {
+        "departure": {
+          "port": "Los Angeles",
+          "country": "United States"
+        },
+        "destination": {
+          "port": "Shanghai",
+          "country": "China"
+        }
+      }
+    },
+    {
+      "ship_number": 2,
+      "ship_name": "Oceanic Explorer",
+      "serial_number": "SN23456",
+      "ship_kind": "Passenger",
+      "captain_name": "Sarah Johnson",
+      "year_built": 2010,
+      "capacity": 3000,
+      "current_location": "New York, United States",
+      "status": "Docked",
+      "price": {
+        "amount": 200,
+        "currency": "USD",
+        "unit": "millions",
+        "description": "Price per Passenger Ship"
+      },
+      "cost_per_unit": {
+        "adult": 1500,
+        "child": 750,
+        "currency": "USD",
+        "unit": "passenger",
+        "description": "Cost per adult or child passenger"
+      },
+      "purpose": "Transports passengers on luxury cruises, offering accommodations and amenities for tourists.",
+      "route": {
+        "departure": {
+          "port": "New York",
+          "country": "United States"
+        },
+        "destination": {
+          "port": "London",
+          "country": "United Kingdom"
+        }
+      }
+    },
+    {
+      "ship_number": 3,
+      "ship_name": "Sea Titan",
+      "serial_number": "SN34567",
+      "ship_kind": "Container",
+      "captain_name": "Michael Brown",
+      "year_built": 2018,
+      "capacity": 100000,
+      "current_location": "Hamburg, Germany",
+      "status": "En Route",
+      "price": {
+        "amount": 150,
+        "currency": "USD",
+        "unit": "millions",
+        "description": "Price per Container Ship"
+      },
+      "cost_per_unit": {
+        "amount": 1000,
+        "currency": "USD",
+        "unit": "container",
+        "description": "Cost per container"
+      },
+      "purpose": "Carries shipping containers, typically used for transporting goods globally.",
+      "route": {
+        "departure": {
+          "port": "Hamburg",
+          "country": "Germany"
+        },
+        "destination": {
+          "port": "Ashdod",
+          "country": "Israel"
+        }
+      }
+    },
+    {
+      "ship_number": 4,
+      "ship_name": "Pacific Spirit",
+      "serial_number": "SN45678",
+      "ship_kind": "Oil Tanker",
+      "captain_name": "Emily Davis",
+      "year_built": 2012,
+      "capacity": 200000,
+      "current_location": "Singapore",
+      "status": "Docked",
+      "price": {
+        "amount": 250,
+        "currency": "USD",
+        "unit": "millions",
+        "description": "Price per Oil Tanker Ship"
+      },
+      "cost_per_unit": {
+        "amount": 100,
+        "currency": "USD",
+        "unit": "ton",
+        "description": "Cost per ton of oil"
+      },
+      "purpose": "Transports oil in bulk from one port to another, mainly for industrial use.",
+      "route": {
+        "departure": {
+          "port": "Singapore",
+          "country": "Singapore"
+        },
+        "destination": {
+          "port": "Rotterdam",
+          "country": "Netherlands"
+        }
+      }
+    },
+    {
+      "ship_number": 5,
+      "ship_name": "Aurora Seas",
+      "serial_number": "SN56789",
+      "ship_kind": "Cruise",
+      "captain_name": "Robert Williams",
+      "year_built": 2020,
+      "capacity": 2500,
+      "current_location": "Miami, United States",
+      "status": "Docked",
+      "price": {
+        "amount": 180,
+        "currency": "USD",
+        "unit": "millions",
+        "description": "Price per Cruise Ship"
+      },
+      "cost_per_unit": {
+        "adult": 2000,
+        "child": 1000,
+        "currency": "USD",
+        "unit": "passenger",
+        "description": "Cost per adult or child passenger"
+      },
+      "purpose": "Offers luxury cruises with entertainment, leisure activities, and travel across oceans.",
+      "route": {
+        "departure": {
+          "port": "Miami",
+          "country": "United States"
+        },
+        "destination": {
+          "port": "Cozumel",
+          "country": "Mexico"
+        }
+      }
+    },
+    {
+      "ship_number": 6,
+      "ship_name": "Storm Rider",
+      "serial_number": "SN67890",
+      "ship_kind": "Cargo",
+      "captain_name": "Laura Wilson",
+      "year_built": 2017,
+      "capacity": 80000,
+      "current_location": "Sydney, Australia",
+      "status": "En Route",
+      "price": {
+        "amount": 110,
+        "currency": "USD",
+        "unit": "millions",
+        "description": "Price per Cargo Ship"
+      },
+      "cost_per_unit": {
+        "amount": 600,
+        "currency": "USD",
+        "unit": "ton",
+        "description": "Cost per ton of cargo"
+      },
+      "purpose": "Transports goods and materials in bulk, often with a focus on industrial or construction materials.",
+      "route": {
+        "departure": {
+          "port": "Sydney",
+          "country": "Australia"
+        },
+        "destination": {
+          "port": "Auckland",
+          "country": "New Zealand"
+        }
+      }
+    },
+    {
+      "ship_number": 7,
+      "ship_name": "The Phoenix",
+      "serial_number": "SN78901",
+      "ship_kind": "Freighter",
+      "captain_name": "David Miller",
+      "year_built": 2014,
+      "capacity": 120000,
+      "current_location": "Port of New York, United States",
+      "status": "En Route",
+      "price": {
+        "amount": 220,
+        "currency": "USD",
+        "unit": "millions",
+        "description": "Price per Freighter Ship"
+      },
+      "cost_per_unit": {
+        "amount": 800,
+        "currency": "USD",
+        "unit": "ton",
+        "description": "Cost per ton of cargo"
+      },
+      "purpose": "Transports goods that are too large or heavy for standard cargo ships, often used for freight, machinery, and equipment.",
+      "route": {
+        "departure": {
+          "port": "Port of New York",
+          "country": "United States"
+        },
+        "destination": {
+          "port": "Haifa",
+          "country": "Israel"
+        }
+      }
+    },
+    {
+      "ship_number": 8,
+      "ship_name": "Atlantic Star",
+      "serial_number": "SN89012",
+      "ship_kind": "Passenger",
+      "captain_name": "Jennifer Moore",
+      "year_built": 2019,
+      "capacity": 1500,
+      "current_location": "Vancouver, Canada",
+      "status": "En Route",
+      "price": {
+        "amount": 160,
+        "currency": "USD",
+        "unit": "millions",
+        "description": "Price per Passenger Ship"
+      },
+      "cost_per_unit": {
+        "adult": 1800,
+        "child": 900,
+        "currency": "USD",
+        "unit": "passenger",
+        "description": "Cost per adult or child passenger"
+      },
+      "purpose": "Luxury passenger transportation on long-distance voyages, offering amenities and entertainment.",
+      "route": {
+        "departure": {
+          "port": "Vancouver",
+          "country": "Canada"
+        },
+        "destination": {
+          "port": "Tokyo",
+          "country": "Japan"
+        }
+      }
+    },
+    {
+      "ship_number": 9,
+      "ship_name": "Wind Crest",
+      "serial_number": "SN90123",
+      "ship_kind": "Research Vessel",
+      "captain_name": "James Taylor",
+      "year_built": 2016,
+      "capacity": 200,
+      "current_location": "Oslo, Norway",
+      "status": "Docked",
+      "price": {
+        "amount": 90,
+        "currency": "USD",
+        "unit": "millions",
+        "description": "Price per Research Vessel"
+      },
+      "cost_per_unit": {
+        "amount": 300,
+        "currency": "USD",
+        "unit": "unit",
+        "description": "Cost per unit"
+      },
+      "purpose": "Used for scientific research and data collection in marine and environmental studies.",
+      "route": {
+        "departure": {
+          "port": "Oslo",
+          "country": "Norway"
+        },
+        "destination": {
+          "port": "Antarctic Waters",
+          "country": "Antarctica"
+        }
+      }
+    },
+    {
+      "ship_number": 10,
+      "ship_name": "Royal Voyager",
+      "serial_number": "SN01234",
+      "ship_kind": "Luxury Yacht",
+      "captain_name": "Samantha Clark",
+      "year_built": 2021,
+      "capacity": 100,
+      "current_location": "Monaco",
+      "status": "Docked",
+      "price": {
+        "amount": 350,
+        "currency": "USD",
+        "unit": "millions",
+        "description": "Price per Luxury Yacht"
+      },
+      "cost_per_unit": {
+        "amount": 5000,
+        "currency": "USD",
+        "unit": "passenger",
+        "description": "Cost per passenger (adult)"
+      },
+      "purpose": "Private luxury yacht for wealthy clients, used for exclusive leisure voyages with high-end accommodations.",
+      "route": {
+        "departure": {
+          "port": "Monaco",
+          "country": "Monaco"
+        },
+        "destination": {
+          "port": "Barcelona",
+          "country": "Spain"
+        }
+      }
+    }
+]
+    
+
+  
