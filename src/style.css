@@ -1,3 +1,12 @@
+:root{
+    
+--primary-color: hsl(210, 20%, 20%);
+--background-color: hsl(169, 59%, 85%);
+--navsearch-color: hsl(210, 20%, 14%);
+--shadow-color: hsl(32, 100%, 50%); 
+opacity: 46%;
+}
+
 .nav-container {
     height: 5vh;
     width: 100vw;
