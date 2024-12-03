@@ -1,6 +1,6 @@
 *{
     margin: 0;
-    border: red solid 1px;
+    /* border: red solid 1px; */
 }
 
 :root{
@@ -9,7 +9,7 @@
 --background-color: hsl(169, 59%, 85%);
 --navsearch-color: hsl(210, 20%, 14%);
 --shadow-color: hsl(32, 100%, 50%); 
-
+/* opacity: 46%; */
 }
 
 .navbar-container{
@@ -22,20 +22,20 @@
 }
 
 .logo-container{
-    width: 10%;
+    width: 15%;
     height: 100%;
     display: flex;
     margin: auto;
-    background-color: pink;
+    background-color: var(--primary-color);
 }
 
 .search-container{
-    width: 90%;
+    width: 85%;
     height: 100%;
     display: flex;
     flex-direction: column;
     margin: auto;
-    background-color: rgb(207, 16, 48);
+    background-color: var(--primary-color);
 }
 
 .search-bar{
@@ -44,7 +44,7 @@
     align-items: center;
     width: 100%;
     height: 50%;
-    background-color: rgb(16, 162, 207);
+    background-color: var(--primary-color);
 }
 
 #search-button{
@@ -56,19 +56,63 @@
 }
 #search-icon{
     margin: 0;
-    height: 80%;
-    width: 80%;
+    height: 50%;
+    width: 50%;
+    transition: 0.5s;
+}
+
+#search-icon:hover{
+    transform: scale(1.2);
+        cursor: pointer;
 }
 
 #user-input{
     width: 80%;
     height: 50%;
+    border: none;
     border-radius: 15px;
-
+    background-color: var(--navsearch-color);
 }
 
 .options{
+    display: flex;
     width: 100%;
     height: 50%;
-    background-color: rgb(19, 16, 207);
+    background-color:  var(--primary-color);
+}
+
+.placeholder1{
+    width: 25%;
+    height: 100%;
+    border: black solid 1px;
+}
+
+.placeholder2{
+    width: 25%;
+    height: 100%;
+    border: black solid 1px;
+}
+
+.placeholder3{
+    width: 25%;
+    height: 100%;
+    border: black solid 1px;
+}
+
+.placeholder4{
+    width: 25%;
+    height: 100%;
+    border: black solid 1px;
+}
+
+
+.logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo-picture{
+    height: 100%;
+    width: 80%;
 }
