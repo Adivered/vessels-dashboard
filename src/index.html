@@ -4,25 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="hero.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- <link rel="stylesheet" href="hero.css"> -->
+    <link rel="stylesheet" href="details.css">
+
     <title>Document</title>
+    <script src="../data/data.js"></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-
     <div class="navbar-container">
         <div class="logo-container">
-            <img src="C:\Users\danie\Desktop\code\test\vessels-dashboard\assets\mariv-logo-dark.png" alt="logo picture" id="logo-picture">
+            <img src="../assets/mariv-logo-dark.png" alt="logo picture" id="logo-picture">
         </div>
         <div class="search-container">
             <div class="search-bar">
                 <button id="search-button"><img src="./icons/search-magnifying-glass-white-icon (1).svg"
                         id="search-icon" alt="search"></button>
-                <input type="text" id="user-input" placeholder="type here">
+                <input type="text" id="user-input" name="user-input" placeholder="type here">
             </div>
             <div class="options">
                 <div class="placeholder1">
+                    <ul id="filter-by-id">
+
+                    </ul>
                     <p>placeholder 1</p>
                 </div>
                 <div class="placeholder2">
@@ -39,14 +45,24 @@
         </div>
         
     </div>
-    <div class="hero-container">
-        <img id="map-background" src="C:\Users\Afro_\Desktop\middleProject\assets\mapbackground.png" alt="">
+    <div class="ship-content">
+        <div class="result-container">
+            <ul id="search-results-ul">
+            </ul>
+        </div>
+        <div class="dashboard-container">
+            <h3>vessel dashboard</h3>
+            <div class="written-details">
+                <div class="vessel-name"><p id="vesselName"></p></div>
+                <div class="current-location"><p id="currentLocation"></p></div>
+                <div class="knots"><p id="knotSpeed"></p></div>
+            </div>
+            <div class="map-container">s</div>
+        </div>
     </div>
     <div class="footer-container">
 
     </div>
-
-    <script src="script.js"></script>
 </body>
 
 </html>

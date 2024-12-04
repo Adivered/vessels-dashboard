@@ -87,6 +87,7 @@ color: white;
     border-radius: 15px;
     background-color: var(--navsearch-color);
     padding-left: 1%;
+    color: white;
 }
 
 .options{
