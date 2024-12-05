@@ -80,7 +80,7 @@ const appendShipsToList = (jsonArray) => {
             const pPurposeKey = document.getElementById('purposeKey')
             const pPurpose = document.getElementById('purpose')
 
-            pVesselNameKey.textContent = "ship Name:";
+            pVesselNameKey.textContent = "Ship Name:";
             pVesselName.textContent = ship.ship_name;
 
             pLocationKey.textContent = "Current Location:"
