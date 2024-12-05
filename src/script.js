@@ -66,7 +66,7 @@ const appendShipsToList = (jsonArray) => {
         const li = document.createElement('li'); // Create a new li element
         li.className = 'list-group-item'; // Add a class name to the li element
         li.textContent = ship.ship_name; // Set the text content of the li element
-        
+
         li.addEventListener('click', () => {
             const pVesselName = document.getElementById('vesselName');
             const pVesselNameKey = document.getElementById('vesselNameKey');
@@ -89,24 +89,47 @@ const appendShipsToList = (jsonArray) => {
             pNameKey.textContent = "Captain's Name:"
             pName.textContent = ship.captain_name;
 
-      
+
+
             console.log(ship)
+
+            const moreDetails = document.getElementById('more-details-btn')
+            moreDetails.addEventListener('click', () => {
+                const pShipKindkey = document.getElementById('vesselNameKey');
+                const pShipKind = document.getElementById('vesselName');
+
+                const pSerialNumberKey = document.getElementById('currentLocationKey')
+                const pSerialNumber = document.getElementById('currentLocation')
+
+                const pYearBuiltKey = document.getElementById('captainsNameKey')
+                const pYearBuilt = document.getElementById('captainsName')
+
+                pShipKindkey.textContent = "Ship Kind:";
+                pShipKind.textContent = ship.ship_kind;
+
+                pSerialNumberKey.textContent = "Serial Number:"
+                pSerialNumber.textContent = ship.serial_number;
+
+                pYearBuiltKey.textContent = "Year Of Production:"
+                pYearBuilt.textContent = ship.year_built;
+            })
+
 
             document.addEventListener("DOMContentLoaded", () => {
                 const openPopup = document.getElementById("openPopup");
                 const closePopup = document.getElementById("closePopup");
                 const popup = document.getElementById("popup");
-            
+
                 // Open popup
                 openPopup.addEventListener("click", () => {
                     popup.style.display = "flex";
                 });
-            
+
                 // Close popup
                 closePopup.addEventListener("click", () => {
                     popup.style.display = "none";
                 });
-            
+
                 // Close popup when clicking outside the content
                 window.addEventListener("click", (event) => {
                     if (event.target === popup) {
