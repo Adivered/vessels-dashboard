@@ -49,7 +49,7 @@
 
 .navbar-center {
     display: flex;
-    flex: 0.7;
+     flex: 0.7;
     justify-content: center;
     gap: 16px;
 }
@@ -181,4 +181,3 @@ border-radius: 1%;
 .details-header{
     font-weight: bold;
 }
-
