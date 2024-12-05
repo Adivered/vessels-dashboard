@@ -50,16 +50,7 @@ const setSearchFilterOptions = (jsonArray) => {
             li.textContent = key.toUpperCase().replaceAll("_", " ")
             ul.appendChild(li)
             li.addEventListener('click',() => {
-                const appendShipsToList = (jsonArray) => {
-                    const ul = document.getElementById('search-results-ul'); // get the ul element by id
-                    ul.textContent = ''; // Clear the existing list
-                    jsonArray.forEach(ship => { // Loop on each ship in jsonArray
-                        const li = document.createElement('li'); // Create a new li element
-                        li.className = 'list-group-item'; // Add a class name to the li element
-                        li.textContent = ship.ship_name; // Set the text content of the li element
-                        ul.appendChild(li); // Append the li element to the ul element
-                    });
-                };
+            
             })
         }
     });
