@@ -39,19 +39,17 @@ const getShipByRoute = (jsonArray, value) => {
 
 
 const setSearchFilterOptions = (jsonArray) => {
+    console.log("In")
     const keys = getAllKeys(jsonArray);
     let forbidden_keys = ['image']
     const ul = document.getElementById('filter-by-id');
-
+    console.log(ul)
     keys.forEach(key => {
         if (!(forbidden_keys.includes(key))) {
             const li = document.createElement('li');
             li.className = "filter-options"
             li.textContent = key.toUpperCase().replaceAll("_", " ")
             ul.appendChild(li)
-            li.addEventListener('click',() => {
-            
-            })
         }
     });
 };
@@ -82,8 +80,6 @@ const appendShipsToList = (jsonArray) => {
             const pNameKey = document.getElementById('captainsNameKey')
             const pName = document.getElementById('captainsName')
 
-            const pPurposeKey = document.getElementById('purposeKey')
-            const pPurpose = document.getElementById('purpose')
 
             pVesselNameKey.textContent = "Ship Name:";
             pVesselName.textContent = ship.ship_name;
@@ -93,8 +89,6 @@ const appendShipsToList = (jsonArray) => {
 
             pNameKey.textContent = "Captain's Name:"
             pName.textContent = ship.captain_name;
-
-
 
             console.log(ship)
 
