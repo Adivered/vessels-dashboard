@@ -1,34 +1,44 @@
 let jsonObject =
-[
-    {
-        "ship_number": 1,
-        "ship_name": "The Voyager",
-        "serial_number": "SN12345",
-        "ship_kind": "Livestock Carriers",
-        "captain_name": "John Smith",
-        "year_built": 2015,
-        "capacity": 50000,
-        "current_location": "Los Angeles, United States",
-        "coordinates (latitude, longitude)": "34.0522, -118.2437",
-        "status": "En Route",
-        "price": {
-            "amount": 120,
-            "currency": "USD",
-            "unit": "millions",
-            "description": "Price per Livestock Carriers Ship"
-        },
-        "cost_per_unit": {
-            "amount": 300,
-            "currency": "USD",
-            "unit": "sheeps/goats",
-            "description": "Cost per sheep/goat"
-        },
-        "purpose": "Transports Livestock and export sheep, cattle, and goats alive.",
-        "route": {
-            "departure (port, country)": "Los Angeles, United States",
-            "destination (port, country)": "Shanghai, China"
-        },
-        "image": "https://engineeringlearn.com/wp-content/uploads/2022/08/Livestock-Carriers.jpg.webp"
+    [
+        {
+            "ship_number": 1,
+            "ship_name": "The Voyager",
+            "serial_number": "SN12345",
+            "ship_kind": "Livestock Carriers",
+            "captain_name": "John Smith",
+            "year_built": 2015,
+            "capacity": 50000,
+            "current_location": "Los Angeles, United States",
+            "coordinates": {
+                "latitude": 34.0522,
+                "longitude": -118.2437
+            },
+            "status": "En Route",
+            "price": {
+                "amount": 120
+                ,
+                "currency": "USD",
+                "unit": "millions",
+                "description": "Price per Livestock Carriers Ship"
+            },
+            "cost_per_unit": {
+                "amount": 300,
+                "currency": "USD",
+                "unit": "sheeps/goats",
+                "description": "Cost per sheep/goat"
+            },
+            "purpose": "Transports Livestock and export sheep, cattle, and goats alive.",
+            "route": {
+                "departure": {
+                    "port": "Los Angeles",
+                    "country": "United States"
+                },
+                "destination": {
+                    "port": "Shanghai",
+                    "country": "China"
+                }
+            },
+            "image": "https://engineeringlearn.com/wp-content/uploads/2022/08/Livestock-Carriers.jpg.webp",
     },
     {
         "ship_number": 2,
