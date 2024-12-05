@@ -43,11 +43,6 @@ const setSearchFilterOptions = (jsonArray) => {
     let forbidden_keys = ['image']
     const ul = document.getElementById('filter-by-id');
 
-
-    // get all keys
-    // for each key in keys create li element with class name
-    // design class name
-
     keys.forEach(key => {
         if (!(forbidden_keys.includes(key))) {
             const li = document.createElement('li');
