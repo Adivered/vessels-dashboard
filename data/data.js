@@ -15,10 +15,11 @@ let jsonObject =
             },
             "status": "En Route",
             "price": {
-                "amount": 120,
+                "amount": 120
+                ,
                 "currency": "USD",
                 "unit": "millions",
-                "description": "Price per Livestock Carriers Ship"
+                "descriptioחn": "Price per Livestock Carriers Ship"
             },
             "cost_per_unit": {
                 "amount": 300,
