@@ -191,3 +191,7 @@ border-radius: 1%;
     display: flex;
     justify-content: space-around;
 }
+
+.details-header{
+    font-weight: bold;
+}
