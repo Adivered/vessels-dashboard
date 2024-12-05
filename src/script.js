@@ -40,14 +40,14 @@ const getShipByRoute = (jsonArray, value) => {
 
 const setSearchFilterOptions = (jsonArray) => {
     const keys = getAllKeys(jsonArray);
-    let forbidden_keys = ['image']
+    let forbidden_keys = ['image', 'price', "ship_name", 'year_built', 'cost_per_unit']
     const ul = document.getElementById('filter-by-id');
 
     keys.forEach(key => {
         if (!(forbidden_keys.includes(key))) {
             const li = document.createElement('li');
             li.className = "filter-options"
-            li.textContent = key.toUpperCase().replaceAll("_", " ")
+            li.textContent = key.toUpperCase().replaceAll("_", " ").replace("(LATITUDE, LONGITUDE)", " ")
             ul.appendChild(li)
             li.addEventListener('click',() => {
             
@@ -56,7 +56,10 @@ const setSearchFilterOptions = (jsonArray) => {
     });
 };
 
-
+document.querySelector('.popup-button').addEventListener('click', function() {
+    const checkbox = this.previousElementSibling;
+    checkbox.checked = !checkbox.checked;
+});
 /* 
 * This function will append ships to the list based on the search term
 * under <ul> tag with id 'search-results-ul'
