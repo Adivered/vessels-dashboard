@@ -38,18 +38,23 @@ const getShipByRoute = (jsonArray, value) => {
 };
 
 
-// const setSearchFilterOptions = (jsonArray) => {
-//     const ul = document.getElementById('filter-by-id');
-//     // get all keys
-//     // for each key in keys create li element with class name
-//     // design class name
-//     let forbidden_keys = ['unit', 'image']
-//     forEach (key in keys) {
-//         if (!(key in forbidden_keys) ) {
+const setSearchFilterOptions = (jsonArray) => {
+    const keys = getAllKeys(jsonArray);
+    let forbidden_keys = ['image']
+    const ul = document.getElementById('filter-by-id');
 
-//         }
-//     }
-// };
+    keys.forEach(key => {
+        if (!(forbidden_keys.includes(key))) {
+            const li = document.createElement('li');
+            li.className = "filter-options"
+            li.textContent = key.toUpperCase().replaceAll("_", " ")
+            ul.appendChild(li)
+            li.addEventListener('click',() => {
+            
+            })
+        }
+    });
+};
 
 
 /* 
@@ -123,8 +128,8 @@ const appendShipsToList = (jsonArray) => {
 // Add listener on page loading
 document.addEventListener('DOMContentLoaded', () => {
     const data = jsonObject; // read data.js and assign to jsonObject
-
-
+    console.log(data)
+    setSearchFilterOptions(data);
 
     // to get all keys:
     // const keys = getAllKeys(data);
