@@ -39,10 +39,11 @@ const getShipByRoute = (jsonArray, value) => {
 
 
 const setSearchFilterOptions = (jsonArray) => {
+    console.log("In")
     const keys = getAllKeys(jsonArray);
     let forbidden_keys = ['image']
     const ul = document.getElementById('filter-by-id');
-
+    console.log(ul)
     keys.forEach(key => {
         if (!(forbidden_keys.includes(key))) {
             const li = document.createElement('li');
