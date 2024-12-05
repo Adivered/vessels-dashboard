@@ -260,3 +260,7 @@
     justify-content: space-around;
     /* padding: ; */
 }
+
+.details-header{
+    font-weight: bold;
+}
