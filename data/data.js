@@ -1,3 +1,4 @@
+let jsonObject =
 [
     {
         "ship_number": 1,
