@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 *{
     margin: 0;
+    font-family: "Roboto";
 }
 
 :root{
@@ -120,49 +123,32 @@ border-radius: 1%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-background-color: rgb(236, 236, 236);
-margin-top: 5vh;
-margin-right: 3vw;
-width: 70vw;
-height: 72vh;
-overflow: hidden;
-justify-content: space-around;
-align-items: center;
--webkit-box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.24);
--moz-box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.24);
-box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.24);
-border-radius: 1%;
+    background-color: rgb(236, 236, 236);
+    margin-top: 5vh;
+    margin-right: 3vw;
+    width: 70vw;
+    height: 72vh;
+    overflow: hidden;
+    justify-content: space-around;
+    align-items: center;
+    -webkit-box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.24);
+    -moz-box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.24);
+    box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.24);
+    border-radius: 1%;
 }
 
-.vessel-name{
-width: 17vw;
-height: 7vh;
-border-radius: 4%;
-background-color: rgb(211, 213, 218);
--webkit-box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.28);
--moz-box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.28);
-box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.28);
-
-}
-
-.current-location{
-    width: 17vw;
+.vessel-card{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width: 15vw;
     height: 7vh;
     border-radius: 4%;
-    background-color:  rgb(211, 213, 218);
+    background-color: rgb(211, 213, 218);
     -webkit-box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.28);
--moz-box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.28);
-box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.28);
-}
-
-.knots{
-    width: 17vw;
-    height: 7vh;
-    border-radius: 4%;
-    background-color:  rgb(211, 213, 218);
-    -webkit-box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.28);
--moz-box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.28);
-box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.28);
+    -moz-box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.28);
+    box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.28);
 }
 
 .map-container{
