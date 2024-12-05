@@ -66,6 +66,55 @@ const appendShipsToList = (jsonArray) => {
         const li = document.createElement('li'); // Create a new li element
         li.className = 'list-group-item'; // Add a class name to the li element
         li.textContent = ship.ship_name; // Set the text content of the li element
+        
+        li.addEventListener('click', () => {
+            const pVesselName = document.getElementById('vesselName');
+            const pVesselNameKey = document.getElementById('vesselNameKey');
+
+            const pLocationKey = document.getElementById('currentLocationKey')
+            const pLocation = document.getElementById('currentLocation')
+
+            const pNameKey = document.getElementById('captainsNameKey')
+            const pName = document.getElementById('captainsName')
+
+            const pPurposeKey = document.getElementById('purposeKey')
+            const pPurpose = document.getElementById('purpose')
+
+            pVesselNameKey.textContent = "ship Name:";
+            pVesselName.textContent = ship.ship_name;
+
+            pLocationKey.textContent = "Current Location:"
+            pLocation.textContent = ship.current_location;
+
+            pNameKey.textContent = "Captain's Name:"
+            pName.textContent = ship.captain_name;
+
+      
+            console.log(ship)
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const openPopup = document.getElementById("openPopup");
+                const closePopup = document.getElementById("closePopup");
+                const popup = document.getElementById("popup");
+            
+                // Open popup
+                openPopup.addEventListener("click", () => {
+                    popup.style.display = "flex";
+                });
+            
+                // Close popup
+                closePopup.addEventListener("click", () => {
+                    popup.style.display = "none";
+                });
+            
+                // Close popup when clicking outside the content
+                window.addEventListener("click", (event) => {
+                    if (event.target === popup) {
+                        popup.style.display = "none";
+                    }
+                });
+            });
+        })
         ul.appendChild(li); // Append the li element to the ul element
     });
 };
@@ -74,11 +123,12 @@ const appendShipsToList = (jsonArray) => {
 // Add listener on page loading
 document.addEventListener('DOMContentLoaded', () => {
     const data = jsonObject; // read data.js and assign to jsonObject
-    
+
+
 
     // to get all keys:
-        // const keys = getAllKeys(data);
-        // console.log(keys);
+    // const keys = getAllKeys(data);
+    // console.log(keys);
 
     // DOM Manipulation of search input
     const searchInput = document.getElementById('user-input'); // get the search input by id
@@ -86,8 +136,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const searchTerm = event.target.value; // get the search term from the input field
         const filteredShips = getShipByName(data, 'ship_name', searchTerm); // filter ships by name function
         appendShipsToList(filteredShips); // append ships to the list
+
+
     });
 
     // Append ships to the list
     //appendShipsToList(data);
+
+
+
+
+
 });
