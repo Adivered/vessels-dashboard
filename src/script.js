@@ -125,22 +125,113 @@ const setupPopupListeners = () => {
 * per ship in the @param jsonArray
 */
 const appendShipsToList = (jsonArray) => {
-    const ul = document.getElementById('search-results-ul');
-    ul.textContent = ''; 
+    const ul = document.getElementById('search-results-ul'); // get the ul element by id
+    ul.textContent = ''; // Clear the existing list
+    jsonArray.forEach(ship => { // Loop on each ship in jsonArray
+        const li = document.createElement('li'); // Create a new li element
+        li.className = 'list-group-item'; // Add a class name to the li element
+        li.textContent = ship.ship_name; // Set the text content of the li element
 
-    jsonArray.forEach(ship => {
-        const li = document.createElement('li');
-        li.className = 'list-group-item';
-        li.textContent = ship.ship_name;
-        
-        li.addEventListener('click', () => updateShipDetails(ship));
-        
-        ul.appendChild(li);
+        // li.style.transition = 'background-image 0.5s ease-in-out';
+
+        // const listCont = document.getElementsByClassName('list-group-item')
+
+        li.addEventListener('mouseover', () => {
+            const imageUrl = ship.image;
+            li.style.transition = 'background 0.5s ease-in-out'
+            li.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imageUrl})`;
+            li.style.backgroundSize = 'cover';
+            li.style.color = 'white'
+            li.style.backgroundRepeat = 'no-repeat';
+            li.style.backgroundPosition = 'center';
+        })
+
+        // li.addEventListener('mouseout', () => {
+        //     const imageUrl = ship.image;
+        //     // li.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imageUrl})`;
+        //     li.style.transition = 'background-image 0.5s ease-in-out'
+        //     // li.style.backgroundImage = 'none';
+        //     // li.style.backgroundColor = '#9ca6b8;'; // Revert background when mouse leaves
+        //     li.style.color = 'white'
+        // });
+
+        li.addEventListener('click', () => {
+            const pVesselName = document.getElementById('vesselName');
+            const pVesselNameKey = document.getElementById('vesselNameKey');
+
+            const pLocationKey = document.getElementById('currentLocationKey')
+            const pLocation = document.getElementById('currentLocation')
+
+            const pNameKey = document.getElementById('captainsNameKey')
+            const pName = document.getElementById('captainsName')
+
+
+            pVesselNameKey.textContent = "Ship Name:";
+            pVesselName.textContent = ship.ship_name;
+
+            pLocationKey.textContent = "Current Location:"
+            pLocation.textContent = ship.current_location;
+
+            pNameKey.textContent = "Captain's Name:"
+            pName.textContent = ship.captain_name;
+
+            console.log(ship)
+
+
+            const moreDetails = document.getElementById('more-details-btn')
+
+            moreDetails.addEventListener('click', () => {
+                const pShipKindkey = document.getElementById('vesselNameKey');
+                const pShipKind = document.getElementById('vesselName');
+
+                const pSerialNumberKey = document.getElementById('currentLocationKey')
+                const pSerialNumber = document.getElementById('currentLocation')
+
+                const pYearBuiltKey = document.getElementById('captainsNameKey')
+                const pYearBuilt = document.getElementById('captainsName')
+
+                pShipKindkey.textContent = "Ship Kind:";
+                pShipKind.textContent = ship.ship_kind;
+
+                pSerialNumberKey.textContent = "Serial Number:"
+                pSerialNumber.textContent = ship.serial_number;
+
+                pYearBuiltKey.textContent = "Year Of Production:"
+                pYearBuilt.textContent = ship.year_built;
+
+            })
+
+
+
+
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const openPopup = document.getElementById("openPopup");
+                const closePopup = document.getElementById("closePopup");
+                const popup = document.getElementById("popup");
+
+                // Open popup
+                openPopup.addEventListener("click", () => {
+                    popup.style.display = "flex";
+                });
+
+                // Close popup
+                closePopup.addEventListener("click", () => {
+                    popup.style.display = "none";
+                });
+
+                // Close popup when clicking outside the content
+                window.addEventListener("click", (event) => {
+                    if (event.target === popup) {
+                        popup.style.display = "none";
+                    }
+                });
+            });
+        })
+        ul.appendChild(li); // Append the li element to the ul element
     });
-    //setupPopupListeners();
 };
 
-// sssssssssh
 // Usage example
 // Add listener on page loading
  // Main Initialization Listener
