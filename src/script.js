@@ -40,13 +40,13 @@ const getShipByRoute = (jsonArray, value) => {
 
 const setSearchFilterOptions = (jsonArray) => {
     const keys = getAllKeys(jsonArray);
-    const forbidden_keys = ['image']
+    let forbidden_keys = ['image', 'price', "ship_name", 'year_built', 'cost_per_unit']
     const ul = document.getElementById('filter-by-id');
     keys.forEach(key => {
         if (!forbidden_keys.includes(key)) {
             const li = document.createElement('li');
             li.className = "filter-options"
-            li.textContent = key.toUpperCase().replaceAll("_", " ")
+            li.textContent = key.toUpperCase().replaceAll("_", " ").replace("(LATITUDE, LONGITUDE)", " ")
             ul.appendChild(li)
         }
     });
@@ -140,14 +140,16 @@ const appendShipsToList = (jsonArray) => {
     //setupPopupListeners();
 };
 
-
+// sssssssssh
 // Usage example
 // Add listener on page loading
  // Main Initialization Listener
  document.addEventListener('DOMContentLoaded', () => {
     const data = jsonObject; // Assuming data is loaded from data.js
     setSearchFilterOptions(data);
-
+    document.querySelector('.popup-button').addEventListener('click', function() {
+        const checkbox = this.previousElementSibling;
+        checkbox.checked = !checkbox.checked;})
     const searchInput = document.getElementById('user-input');
     searchInput.addEventListener('input', (event) => {
         const searchTerm = event.target.value;
@@ -156,3 +158,6 @@ const appendShipsToList = (jsonArray) => {
     });
 
 });
+
+
+

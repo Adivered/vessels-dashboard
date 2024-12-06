@@ -16,6 +16,7 @@
 </head>
 
 <body>
+
     <nav class="navbar-container">
         <div class="navbar-left">
             <div class="logo">
@@ -25,10 +26,16 @@
         </div>
         <div class="navbar-center">
             <input type="text" id="user-input" name="user-input" placeholder="type here">
-            <div class="filter-btn">
-                <ul id="filter-by-id">
-                </ul>
-            </div>
+       
+                <label class="popup">
+                    <input type="checkbox">
+                    <button class="popup-button">Filter</button>
+                    <nav class="popup-window">
+                        <ul id="filter-by-id">
+                        </ul>
+                    </nav>
+                </label>
+            
         </div>
         <div class="navbar-right">
             <div class="profile-icon"></div>

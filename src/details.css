@@ -80,45 +80,7 @@
     flex: 0.1;
 }
 
-.filter-btn {
-    display: flex;
-    align-items: center;
-    padding: 8px 16px;
-    font-size: 14pt;
-    border: none;
-    background-color: var(--blue-grotto);
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-}
 
-#filter-by-id {
-    list-style: none;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.5s ease;
-    display: none;
-}
-
-.filter-btn:hover {
-    background-color: #0056b3;
-}
-
-.filter-btn:hover #filter-by-id {
-    visibility: visible;
-    opacity: 1;
-    display: block;
-}
-
-.filter-options {
-    padding: 1px;
-    background-color: white;
-    cursor: pointer;
-}
-
-.filter-options:hover {
-    background-color: #f0f0f0;
-}
 
 .profile-icon {
     position: absolute;
@@ -236,9 +198,33 @@
 }
 
 .written-details{
-    width: 100%;
+    width: 94%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+.popup {
+    position: relative;
+    display: inline-block;
+}
+
+.popup input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.popup-button {
+    background-color: #4A90E2;
+    color: white;
+    width: 120px;
+    height: 40px;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 
@@ -310,4 +296,55 @@
     display: flex;
     justify-content: center;
     align-content: center;
+}
+.popup-button:hover {
+    background-color: #357ABD;
+        color: white;
+    width: 120px;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup-window {
+    display: none;
+    position: absolute;
+
+    z-index: 1000;
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    padding: 8px 0px;
+
+
+}
+
+.popup input:checked ~ .popup-window {
+    display: block;
+    
+}
+
+#filter-by-id {
+  list-style-type: none;
+  padding: 0;
+  
+}
+
+#filter-by-id :hover{
+  font-weight: bold;
+}
+
+
+.filter-options{
+    background: none;
+margin-bottom:24px;
+margin-left: 8px;
+font-size: small;
+
+}
+
+.filter-options:hover{
+  cursor: pointer;
 }
