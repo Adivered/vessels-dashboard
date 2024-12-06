@@ -70,23 +70,28 @@ const appendShipsToList = (jsonArray) => {
         li.className = 'list-group-item'; // Add a class name to the li element
         li.textContent = ship.ship_name; // Set the text content of the li element
 
-        li.style.transition = 'background-image 0.5s ease-in-out';
+        // li.style.transition = 'background-image 0.5s ease-in-out';
 
         // const listCont = document.getElementsByClassName('list-group-item')
 
         li.addEventListener('mouseover', () => {
             const imageUrl = ship.image;
-            li.style.backgroundImage = `url(${imageUrl})`;
+            li.style.transition = 'background 0.5s ease-in-out'
+            li.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imageUrl})`;
             li.style.backgroundSize = 'cover';
+            li.style.color = 'white'
             li.style.backgroundRepeat = 'no-repeat';
             li.style.backgroundPosition = 'center';
-            li.style.transition = 'background-image 0.5s ease';
         })
 
-        li.addEventListener('mouseout', () => {
-            li.style.backgroundImage = 'none';
-            li.style.backgroundColor = '#9ca6b8;'; // Revert background when mouse leaves
-        });
+        // li.addEventListener('mouseout', () => {
+        //     const imageUrl = ship.image;
+        //     // li.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imageUrl})`;
+        //     li.style.transition = 'background-image 0.5s ease-in-out'
+        //     // li.style.backgroundImage = 'none';
+        //     // li.style.backgroundColor = '#9ca6b8;'; // Revert background when mouse leaves
+        //     li.style.color = 'white'
+        // });
 
         li.addEventListener('click', () => {
             const pVesselName = document.getElementById('vesselName');
