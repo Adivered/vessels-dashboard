@@ -140,14 +140,16 @@ const appendShipsToList = (jsonArray) => {
     //setupPopupListeners();
 };
 
-
+// sssssssssh
 // Usage example
 // Add listener on page loading
  // Main Initialization Listener
  document.addEventListener('DOMContentLoaded', () => {
     const data = jsonObject; // Assuming data is loaded from data.js
     setSearchFilterOptions(data);
-
+    document.querySelector('.popup-button').addEventListener('click', function() {
+        const checkbox = this.previousElementSibling;
+        checkbox.checked = !checkbox.checked;})
     const searchInput = document.getElementById('user-input');
     searchInput.addEventListener('input', (event) => {
         const searchTerm = event.target.value;
@@ -156,3 +158,6 @@ const appendShipsToList = (jsonArray) => {
     });
 
 });
+
+
+
