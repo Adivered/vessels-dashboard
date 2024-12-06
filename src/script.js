@@ -62,37 +62,6 @@ const addMarker = (map, lat, lng, title) => {
     });
 }
 
-const updateShipDetails = (ship) => {
-    const updateElementText = (elementId, text) => {
-        const element = document.getElementById(elementId);
-        element.textContent = text;
-    };
-
-    updateElementText('vesselNameKey', "Ship Name:");
-    updateElementText('vesselName', ship.ship_name);
-    updateElementText('currentLocationKey', "Current Location:");
-    updateElementText('currentLocation', ship.current_location);
-    updateElementText('captainsNameKey', "Captain's Name:");
-    updateElementText('captainsName', ship.captain_name);
-
-    const mapInstance = new google.maps.Map(document.getElementById('map-container'), {
-        mapId: ship.serial_number,
-        center: {
-            lat: ship.coordinates.latitude,
-            lng: ship.coordinates.longitude
-        },
-        zoom: 6,
-        mapTypeId: google.maps.MapTypeId.HYBRID,
-    });
-
-    addMarker(
-        mapInstance, 
-        ship.coordinates.latitude, 
-        ship.coordinates.longitude, 
-        ship.ship_name
-    );
-};
-
 
 // Popup Handlers
 const setupPopupListeners = () => {
@@ -175,7 +144,22 @@ const appendShipsToList = (jsonArray) => {
             pNameKey.textContent = "Captain's Name:"
             pName.textContent = ship.captain_name;
 
-            console.log(ship)
+            const mapInstance = new google.maps.Map(document.getElementById('map-container'), {
+                mapId: ship.serial_number,
+                center: {
+                    lat: ship.coordinates.latitude,
+                    lng: ship.coordinates.longitude
+                },
+                zoom: 6,
+                mapTypeId: google.maps.MapTypeId.HYBRID,
+            });
+        
+            addMarker(
+                mapInstance, 
+                ship.coordinates.latitude, 
+                ship.coordinates.longitude, 
+                ship.ship_name
+            );
 
 
             const moreDetails = document.getElementById('more-details-btn')
@@ -200,9 +184,6 @@ const appendShipsToList = (jsonArray) => {
                 pYearBuilt.textContent = ship.year_built;
 
             })
-
-
-
 
 
             document.addEventListener("DOMContentLoaded", () => {
@@ -249,6 +230,3 @@ const appendShipsToList = (jsonArray) => {
     });
 
 });
-
-
-
