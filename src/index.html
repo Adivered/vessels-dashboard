@@ -11,9 +11,12 @@
     <title>Document</title>
     <script src="../data/data.js"></script>
     <script src="script.js" defer></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGVuWf1oTD7R3m91wRkQV8gqGueSmyPDg&v=weekly&libraries=marker&loading=async" ></script> <!-- Include Google Maps API -->
+
 </head>
 
 <body>
+
     <nav class="navbar-container">
         <div class="navbar-left">
             <div class="logo">
@@ -23,10 +26,16 @@
         </div>
         <div class="navbar-center">
             <input type="text" id="user-input" name="user-input" placeholder="type here">
-            <div class="filter-btn">
-                <ul id="filter-by-id">
-                </ul>
-            </div>
+       
+                <label class="popup">
+                    <input type="checkbox">
+                    <button class="popup-button">Filter</button>
+                    <nav class="popup-window">
+                        <ul id="filter-by-id">
+                        </ul>
+                    </nav>
+                </label>
+            
         </div>
         <div class="navbar-right">
             <div class="profile-icon"></div>
@@ -59,10 +68,58 @@
                 <button id="more-details-btn">More Details</button>
 
             </div>
-            <div class="map-container">s</div>
+            <div id="map-container"></div>
         </div>
     </div>
     <div class="footer-container">
+        <div class="headlinesDiv">
+            <div class="headline">
+                <h5 class="footerH4">About MariVis</h5>
+            </div>
+
+            <div class="headline">
+                <h5 class="footerH4">Quick Links</h5>
+            </div>
+
+            <div class="headline">
+                <h5 class="footerH4">Connect with us</h5>
+            </div>
+        </div>
+
+        <div class="ContentDiv">
+            <div class="content">
+                <h6>Real-time information about ships and motor vessels worldwide.</h6>
+            </div>
+            <div class="content">
+                <div class="innerLinks">
+                    <a href="">
+                        <h6>Home</h6>
+                    </a>
+                    <a href="">
+                        <h6>About</h6>
+                    </a>
+                    <a href="">
+                        <h6>Contact</h6>
+                    </a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="iconsDiv">
+                    <div class="icons">
+                        <a href="https://www.facebook.com/"><img class="iconImages" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/facebook-square-icon.svg"
+                                alt="facebook icon"></a>
+                    </div>
+                    <div class="icons">
+                        <a href="https://www.instagram.com/"><img class="iconImages" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/ig-instagram-icon.svg"
+                                alt="instagram icon"></a>
+                    </div>
+                    <div class="icons">
+                        <a href="https://github.com/Adivered/vessels-dashboard"><img class="iconImages" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.svg"
+                                alt="GitHub icon"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </body>

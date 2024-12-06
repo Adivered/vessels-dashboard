@@ -39,21 +39,83 @@ const getShipByRoute = (jsonArray, value) => {
 
 
 const setSearchFilterOptions = (jsonArray) => {
-    console.log("In")
     const keys = getAllKeys(jsonArray);
-    let forbidden_keys = ['image']
+    let forbidden_keys = ['image', 'price', "ship_name", 'year_built', 'cost_per_unit']
     const ul = document.getElementById('filter-by-id');
-    console.log(ul)
     keys.forEach(key => {
-        if (!(forbidden_keys.includes(key))) {
+        if (!forbidden_keys.includes(key)) {
             const li = document.createElement('li');
             li.className = "filter-options"
-            li.textContent = key.toUpperCase().replaceAll("_", " ")
+            li.textContent = key.toUpperCase().replaceAll("_", " ").replace("(LATITUDE, LONGITUDE)", " ")
             ul.appendChild(li)
         }
     });
 };
 
+const addMarker = (map, lat, lng, title) => {
+    const marker = new google.maps.marker.AdvancedMarkerElement({
+        map: map,
+        position: {
+            lat: lat,
+            lng: lng
+        },
+    });
+}
+
+const updateShipDetails = (ship) => {
+    const updateElementText = (elementId, text) => {
+        const element = document.getElementById(elementId);
+        element.textContent = text;
+    };
+
+    updateElementText('vesselNameKey', "Ship Name:");
+    updateElementText('vesselName', ship.ship_name);
+    updateElementText('currentLocationKey', "Current Location:");
+    updateElementText('currentLocation', ship.current_location);
+    updateElementText('captainsNameKey', "Captain's Name:");
+    updateElementText('captainsName', ship.captain_name);
+
+    const mapInstance = new google.maps.Map(document.getElementById('map-container'), {
+        mapId: ship.serial_number,
+        center: {
+            lat: ship.coordinates.latitude,
+            lng: ship.coordinates.longitude
+        },
+        zoom: 6,
+        mapTypeId: google.maps.MapTypeId.HYBRID,
+    });
+
+    addMarker(
+        mapInstance, 
+        ship.coordinates.latitude, 
+        ship.coordinates.longitude, 
+        ship.ship_name
+    );
+};
+
+
+// Popup Handlers
+const setupPopupListeners = () => {
+    const openPopup = document.getElementById("openPopup");
+    const closePopup = document.getElementById("closePopup");
+    const popup = document.getElementById("popup");
+
+    const togglePopup = () => {
+        popup.style.display = popup.style.display === "flex" ? "none" : "flex";
+    };
+
+    if (openPopup) {
+        openPopup.addEventListener("click", togglePopup);
+    }
+    
+    closePopup.addEventListener("click", togglePopup);
+
+    window.addEventListener("click", (event) => {
+        if (event.target === popup) {
+            popup.style.display = "none";
+        }
+    });
+};
 
 /* 
 * This function will append ships to the list based on the search term
@@ -172,30 +234,21 @@ const appendShipsToList = (jsonArray) => {
 
 // Usage example
 // Add listener on page loading
-document.addEventListener('DOMContentLoaded', () => {
-    const data = jsonObject; // read data.js and assign to jsonObject
-    console.log(data)
+ // Main Initialization Listener
+ document.addEventListener('DOMContentLoaded', () => {
+    const data = jsonObject; // Assuming data is loaded from data.js
     setSearchFilterOptions(data);
-
-    // to get all keys:
-    // const keys = getAllKeys(data);
-    // console.log(keys);
-
-    // DOM Manipulation of search input
-    const searchInput = document.getElementById('user-input'); // get the search input by id
-    searchInput.addEventListener('input', (event) => { // add an event listener on input event
-        const searchTerm = event.target.value; // get the search term from the input field
-        const filteredShips = getShipByName(data, 'ship_name', searchTerm); // filter ships by name function
-        appendShipsToList(filteredShips); // append ships to the list
-
-
+    document.querySelector('.popup-button').addEventListener('click', function() {
+        const checkbox = this.previousElementSibling;
+        checkbox.checked = !checkbox.checked;})
+    const searchInput = document.getElementById('user-input');
+    searchInput.addEventListener('input', (event) => {
+        const searchTerm = event.target.value;
+        const filteredShips = getShipByName(data, 'ship_name', searchTerm);
+        appendShipsToList(filteredShips);
     });
 
-    // Append ships to the list
-    //appendShipsToList(data);
-
-
-
-
-
 });
+
+
+
