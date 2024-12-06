@@ -70,6 +70,24 @@ const appendShipsToList = (jsonArray) => {
         li.className = 'list-group-item'; // Add a class name to the li element
         li.textContent = ship.ship_name; // Set the text content of the li element
 
+        li.style.transition = 'background-image 0.5s ease-in-out';
+
+        // const listCont = document.getElementsByClassName('list-group-item')
+
+        li.addEventListener('mouseover', () => {
+            const imageUrl = ship.image;
+            li.style.backgroundImage = `url(${imageUrl})`;
+            li.style.backgroundSize = 'cover';
+            li.style.backgroundRepeat = 'no-repeat';
+            li.style.backgroundPosition = 'center';
+            li.style.transition = 'background-image 0.5s ease';
+        })
+
+        li.addEventListener('mouseout', () => {
+            li.style.backgroundImage = 'none';
+            li.style.backgroundColor = '#9ca6b8;'; // Revert background when mouse leaves
+        });
+
         li.addEventListener('click', () => {
             const pVesselName = document.getElementById('vesselName');
             const pVesselNameKey = document.getElementById('vesselNameKey');
@@ -92,7 +110,9 @@ const appendShipsToList = (jsonArray) => {
 
             console.log(ship)
 
+
             const moreDetails = document.getElementById('more-details-btn')
+
             moreDetails.addEventListener('click', () => {
                 const pShipKindkey = document.getElementById('vesselNameKey');
                 const pShipKind = document.getElementById('vesselName');
@@ -111,7 +131,11 @@ const appendShipsToList = (jsonArray) => {
 
                 pYearBuiltKey.textContent = "Year Of Production:"
                 pYearBuilt.textContent = ship.year_built;
+
             })
+
+
+
 
 
             document.addEventListener("DOMContentLoaded", () => {
