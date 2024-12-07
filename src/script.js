@@ -68,7 +68,7 @@ const setupPopupListeners = () => {
     if (openPopup) {
         openPopup.addEventListener("click", togglePopup);
     }
-    
+
     closePopup.addEventListener("click", togglePopup);
 
     window.addEventListener("click", (event) => {
@@ -86,31 +86,60 @@ const updateShipDivDetails = async (ship) => {
     const pNameKey = document.getElementById('captainsNameKey')
     const pName = document.getElementById('captainsName')
 
-    pVesselNameKey.textContent = "Ship Name:";
-    pVesselName.textContent = ship.ship_name;
+    // pVesselNameKey.textContent = "Ship Name:";
+    // pVesselName.textContent = ship.ship_name;
 
-    pLocationKey.textContent = "Current Location:"
-    pLocation.textContent = ship.current_location;
+    // pLocationKey.textContent = "Current Location:"
+    // pLocation.textContent = ship.current_location;
 
-    pNameKey.textContent = "Captain's Name:"
-    pName.textContent = ship.captain_name;
-    console.log(ship);
+    // pNameKey.textContent = "Captain's Name:"
+    // pName.textContent = ship.captain_name;
+    // console.log(ship);
     const mapInstance = await initMap('map-container', ship.serial_number, ship.coordinates.latitude, 
         ship.coordinates.longitude, 6);
 
     addMarker(mapInstance, ship.coordinates.latitude, ship.coordinates.longitude, ship.ship_name);
 
     const moreDetails = document.getElementById('more-details-btn')
+    // const originalTexts = {
+    //     shipKindKey: document.getElementById('vesselNameKey'),
+    //     shipKind: document.getElementById('vesselName'),
+    //     serialNumberKey: document.getElementById('currentLocationKey'),
+    //     serialNumber: document.getElementById('currentLocation'),
+    //     yearBuiltKey: document.getElementById('captainsNameKey'),
+    //     yearBuilt: document.getElementById('captainsName'),
+    // };
 
+    let isDetailShown = false;
     moreDetails.addEventListener('click', () => {
-        pVesselNameKey.textContent = "Ship Kind:";
-        pVesselName.textContent = ship.ship_kind;
-        pLocationKey.textContent = "Serial Number:"
-        pLocation.textContent = ship.serial_number;
-        pNameKey.textContent = "Year Of Production:"
-        pName.textContent = ship.year_built;
+        if (!isDetailShown) {
+                    
+            pVesselName.textContent = "Ship Kind:";
+            pShipKind.textContent = ship.ship_kind;
+        
+            pSerialNumberKey.textContent = "Serial Number:"
+            pSerialNumber.textContent = ship.serial_number;
+        
+            pYearBuiltKey.textContent = "Year Of Production:"
+            pYearBuilt.textContent = ship.year_built;
+        
+            isDetailShown = true;
+        } else {
+        
+            pShipKindkey.textContent = originalTexts.shipKindKey;
+            pShipKind.textContent = originalTexts.shipKind;
+        
+            pSerialNumberKey.textContent = originalTexts.serialNumberKey;
+            pSerialNumber.textContent = originalTexts.serialNumber;
+        
+            pYearBuiltKey.textContent = originalTexts.yearBuiltKey;
+            pYearBuilt.textContent = originalTexts.yearBuilt;
+        
+            isDetailShown = false;
+        }
     })
 }
+
 
 /* 
 * This function will append ships to the list based on the search term
@@ -135,6 +164,12 @@ const appendShipsToList = (jsonArray) => {
             li.style.color = 'white'
             li.style.backgroundRepeat = 'no-repeat';
             li.style.backgroundPosition = 'center';
+        })
+
+        li.addEventListener('mouseleave', () => {
+
+            li.style.backgroundImage = 'none';
+            li.style.color = '';
         })
 
         li.addEventListener('click', () => {
