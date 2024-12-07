@@ -241,6 +241,7 @@ const welcomeScreen = () => {
         jsonObject.forEach(ship => {
             addMarker(map, ship.coordinates.latitude, ship.coordinates.longitude);
         });
+        
     } catch (TypeError) {
         window.onload = function() {
             const map = initMap('map-container', '1', 7.3521, 300, 2);
