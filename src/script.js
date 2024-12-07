@@ -6,16 +6,7 @@ const getAllKeys = (jsonArray) => {
     return [];
 };
 
-const getShipByNumber = (jsonArray, key, value) => {
-    return jsonArray.filter(obj => obj[key] === value);
-}
-
 const getShipByKey = (jsonArray, key, value) => {
-    // value: string
-    // Need to check few cases: 
-    // 1. obj[key] is a number:
-    // 1. a. is obj[key] is an int or float.
-    // 2. obj[key] is a string -> contains a matching lower case value
     console.log("Key: ", key, " Value: ", value);
     if (typeof jsonArray[0][key] === 'number') {
         if (Number.isInteger(jsonArray[0][key])) {
@@ -44,7 +35,7 @@ const initMap = async (element,id, lat, lng, zoom) => {
 }
 
 
-const addMarker = (map, lat, lng, title) => {
+const addMarker = (map, lat, lng) => {
     const marker = new google.maps.marker.AdvancedMarkerElement({
         map: map,
         position: {
@@ -248,6 +239,13 @@ const setSearchFilterOptions = (jsonArray) => {
 const welcomeScreenn = () => {
     const dashboardContainer = document.getElementById('dashboard-container');
     dashboardContainer.textContent = '';
+    const welcomeScreenn = document.createElement('div');
+    welcomeScreenn.className = 'welcome-screen';
+    const welcomeText = document.createElement('h3');
+    welcomeText.textContent = 'Welcome to the Ship Dashboard';
+    welcomeScreenn.appendChild(welcomeText);
+    dashboardContainer.appendChild(welcomeScreenn);
+
 }
 const dashBoardScreen = () => {
     const dashboardContainer = document.getElementById('dashboard-container');
