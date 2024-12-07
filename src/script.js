@@ -76,7 +76,7 @@ const setupPopupListeners = () => {
     if (openPopup) {
         openPopup.addEventListener("click", togglePopup);
     }
-    
+
     closePopup.addEventListener("click", togglePopup);
 
     window.addEventListener("click", (event) => {
@@ -115,14 +115,11 @@ const appendShipsToList = (jsonArray) => {
             li.style.backgroundPosition = 'center';
         })
 
-        // li.addEventListener('mouseout', () => {
-        //     const imageUrl = ship.image;
-        //     // li.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imageUrl})`;
-        //     li.style.transition = 'background-image 0.5s ease-in-out'
-        //     // li.style.backgroundImage = 'none';
-        //     // li.style.backgroundColor = '#9ca6b8;'; // Revert background when mouse leaves
-        //     li.style.color = 'white'
-        // });
+        li.addEventListener('mouseleave', () => {
+
+            li.style.backgroundImage = 'none';
+            li.style.color = '';
+        })
 
         li.addEventListener('click', () => {
             const pVesselName = document.getElementById('vesselName');
@@ -153,16 +150,28 @@ const appendShipsToList = (jsonArray) => {
                 zoom: 6,
                 mapTypeId: google.maps.MapTypeId.HYBRID,
             });
-        
+
             addMarker(
-                mapInstance, 
-                ship.coordinates.latitude, 
-                ship.coordinates.longitude, 
+                mapInstance,
+                ship.coordinates.latitude,
+                ship.coordinates.longitude,
                 ship.ship_name
             );
 
 
             const moreDetails = document.getElementById('more-details-btn')
+
+            
+            const originalTexts = {
+                shipKindKey: document.getElementById('vesselNameKey').textContent,
+                shipKind: document.getElementById('vesselName').textContent,
+                serialNumberKey: document.getElementById('currentLocationKey').textContent,
+                serialNumber: document.getElementById('currentLocation').textContent,
+                yearBuiltKey: document.getElementById('captainsNameKey').textContent,
+                yearBuilt: document.getElementById('captainsName').textContent
+            };
+
+            let isDetailShown = false;
 
             moreDetails.addEventListener('click', () => {
                 const pShipKindkey = document.getElementById('vesselNameKey');
@@ -174,15 +183,31 @@ const appendShipsToList = (jsonArray) => {
                 const pYearBuiltKey = document.getElementById('captainsNameKey')
                 const pYearBuilt = document.getElementById('captainsName')
 
-                pShipKindkey.textContent = "Ship Kind:";
-                pShipKind.textContent = ship.ship_kind;
+                if (!isDetailShown) {
+                    
+                    pShipKindkey.textContent = "Ship Kind:";
+                    pShipKind.textContent = ship.ship_kind;
 
-                pSerialNumberKey.textContent = "Serial Number:"
-                pSerialNumber.textContent = ship.serial_number;
+                    pSerialNumberKey.textContent = "Serial Number:"
+                    pSerialNumber.textContent = ship.serial_number;
 
-                pYearBuiltKey.textContent = "Year Of Production:"
-                pYearBuilt.textContent = ship.year_built;
+                    pYearBuiltKey.textContent = "Year Of Production:"
+                    pYearBuilt.textContent = ship.year_built;
 
+                    isDetailShown = true;
+                } else {
+               
+                    pShipKindkey.textContent = originalTexts.shipKindKey;
+                    pShipKind.textContent = originalTexts.shipKind;
+
+                    pSerialNumberKey.textContent = originalTexts.serialNumberKey;
+                    pSerialNumber.textContent = originalTexts.serialNumber;
+
+                    pYearBuiltKey.textContent = originalTexts.yearBuiltKey;
+                    pYearBuilt.textContent = originalTexts.yearBuilt;
+
+                    isDetailShown = false;
+                }
             })
 
 
@@ -215,13 +240,14 @@ const appendShipsToList = (jsonArray) => {
 
 // Usage example
 // Add listener on page loading
- // Main Initialization Listener
- document.addEventListener('DOMContentLoaded', () => {
+// Main Initialization Listener
+document.addEventListener('DOMContentLoaded', () => {
     const data = jsonObject; // Assuming data is loaded from data.js
     setSearchFilterOptions(data);
-    document.querySelector('.popup-button').addEventListener('click', function() {
+    document.querySelector('.popup-button').addEventListener('click', function () {
         const checkbox = this.previousElementSibling;
-        checkbox.checked = !checkbox.checked;})
+        checkbox.checked = !checkbox.checked;
+    })
     const searchInput = document.getElementById('user-input');
     searchInput.addEventListener('input', (event) => {
         const searchTerm = event.target.value;

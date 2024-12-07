@@ -34,6 +34,7 @@ body {
     padding: 8px 64px;
     gap: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 .navbar-left {
@@ -47,10 +48,10 @@ body {
 }
 
 #logo-img {
-    position: relative;
-    width: 35px;
-    height: 35px;
-    top: 15%;
+    position: absolute;
+    margin-bottom: 10px;
+    height: 90px;
+    left: 10%;
 }
 
 .navbar-left span {
@@ -196,6 +197,18 @@ body {
     color: var(--dark-blue)
 }
 
+#more-details-btn{
+    background-color: #4A90E2;
+    color: white;
+    width: 7vw;
+    height: 7vh;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
 #map-container{
     background-color: var(--slate);
     border-radius: 0.5rem;
@@ -290,7 +303,7 @@ body {
 
 .content a .iconImages {
     width: 4vh;
-    height: 3vh
+
 }
 
 .content .innerLinks {
