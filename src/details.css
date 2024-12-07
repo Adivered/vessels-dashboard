@@ -26,7 +26,6 @@ body {
     flex-direction: column;
 }
 
-@media(min-width: 640px) {
 
 
     /* Navbar styles */
@@ -381,7 +380,7 @@ body {
     .filter-options:hover {
         cursor: pointer;
     }
-}
+
 
 /* ---------------------------------------------------------------------------------------------------------------------------------- */
 
