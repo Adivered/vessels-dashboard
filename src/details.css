@@ -235,18 +235,6 @@ body {
         flex: 0.1;
     }
 
-
-
-    .profile-icon {
-        position: absolute;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        border-color: #000;
-        cursor: pointer;
-    }
-
-
     /* Main Section */
 
     .ship-content {
@@ -503,7 +491,7 @@ body {
 
     #filter-by-id {
         list-style-type: none;
-        padding: 0;
+        padding: 0px 0px;
 
     }
 
