@@ -7,7 +7,6 @@ const getAllKeys = (jsonArray) => {
 };
 
 const getShipByKey = (jsonArray, key, value) => {
-    console.log("Key: ", key, " Value: ", value);
     if (typeof jsonArray[0][key] === 'number') {
         if (Number.isInteger(jsonArray[0][key])) {
             return jsonArray.filter(obj => obj[key] === parseInt(value));
@@ -21,7 +20,7 @@ const getShipByKey = (jsonArray, key, value) => {
     }
 }
 
-const initMap = async (element,id, lat, lng, zoom) => {
+const initMap = (element,id, lat, lng, zoom) => {
     const mapInstance = new google.maps.Map(document.getElementById(element), {
         mapId: id,
         center: {
@@ -69,7 +68,7 @@ const setupPopupListeners = () => {
     });
 };
 
-const updateShipDivDetails = async (ship) => {
+const updateShipDivDetails = (ship) => {
     const pVesselName = document.getElementById('vesselName');
     const pVesselNameKey = document.getElementById('vesselNameKey');
     const pLocationKey = document.getElementById('currentLocationKey')
@@ -77,57 +76,38 @@ const updateShipDivDetails = async (ship) => {
     const pNameKey = document.getElementById('captainsNameKey')
     const pName = document.getElementById('captainsName')
 
-    // pVesselNameKey.textContent = "Ship Name:";
-    // pVesselName.textContent = ship.ship_name;
+    pVesselNameKey.textContent = "Ship Name:";
+    pVesselName.textContent = ship.ship_name;
+    pLocationKey.textContent = "Current Location:"
+    pLocation.textContent = ship.current_location;
+    pNameKey.textContent = "Captain's Name:"
+    pName.textContent = ship.captain_name;
 
-    // pLocationKey.textContent = "Current Location:"
-    // pLocation.textContent = ship.current_location;
-
-    // pNameKey.textContent = "Captain's Name:"
-    // pName.textContent = ship.captain_name;
-    // console.log(ship);
-    const mapInstance = await initMap('map-container', ship.serial_number, ship.coordinates.latitude, 
+    const mapInstance = initMap('map-container', ship.serial_number, ship.coordinates.latitude, 
         ship.coordinates.longitude, 6);
 
     addMarker(mapInstance, ship.coordinates.latitude, ship.coordinates.longitude, ship.ship_name);
 
     const moreDetails = document.getElementById('more-details-btn')
-    // const originalTexts = {
-    //     shipKindKey: document.getElementById('vesselNameKey'),
-    //     shipKind: document.getElementById('vesselName'),
-    //     serialNumberKey: document.getElementById('currentLocationKey'),
-    //     serialNumber: document.getElementById('currentLocation'),
-    //     yearBuiltKey: document.getElementById('captainsNameKey'),
-    //     yearBuilt: document.getElementById('captainsName'),
-    // };
-
     let isDetailShown = false;
+
     moreDetails.addEventListener('click', () => {
         if (!isDetailShown) {
-                    
-            pVesselName.textContent = "Ship Kind:";
-            pShipKind.textContent = ship.ship_kind;
-        
-            pSerialNumberKey.textContent = "Serial Number:"
-            pSerialNumber.textContent = ship.serial_number;
-        
-            pYearBuiltKey.textContent = "Year Of Production:"
-            pYearBuilt.textContent = ship.year_built;
-        
-            isDetailShown = true;
+            pVesselNameKey.textContent = "Ship Kind:";
+            pVesselName.textContent = ship.ship_kind;
+            pLocationKey.textContent = "Serial Number:"
+            pLocation.textContent = ship.serial_number;
+            pNameKey.textContent = "Year Of Production:"
+            pName.textContent = ship.year_built;
         } else {
-        
-            pShipKindkey.textContent = originalTexts.shipKindKey;
-            pShipKind.textContent = originalTexts.shipKind;
-        
-            pSerialNumberKey.textContent = originalTexts.serialNumberKey;
-            pSerialNumber.textContent = originalTexts.serialNumber;
-        
-            pYearBuiltKey.textContent = originalTexts.yearBuiltKey;
-            pYearBuilt.textContent = originalTexts.yearBuilt;
-        
-            isDetailShown = false;
+            pVesselNameKey.textContent = "Ship Name:";
+            pVesselName.textContent = ship.ship_name;
+            pLocationKey.textContent = "Current Location:"
+            pLocation.textContent = ship.current_location;
+            pNameKey.textContent = "Captain's Name:"
+            pName.textContent = ship.captain_name;
         }
+        isDetailShown = !isDetailShown;
     })
 }
 
@@ -146,10 +126,9 @@ const appendShipsToList = (jsonArray) => {
         const li = document.createElement('li'); // Create a new li element
         li.className = 'list-group-item'; // Add a class name to the li element
         li.textContent = ship.ship_name; // Set the text content of the li element
-
+        li.style.transition = 'background 0.5s ease-in-out, color 0.5s ease-in-out';
         li.addEventListener('mouseover', () => {
             const imageUrl = ship.image;
-            li.style.transition = 'background 0.5s ease-in-out'
             li.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imageUrl})`;
             li.style.backgroundSize = 'cover';
             li.style.color = 'white'
@@ -158,7 +137,6 @@ const appendShipsToList = (jsonArray) => {
         })
 
         li.addEventListener('mouseleave', () => {
-
             li.style.backgroundImage = 'none';
             li.style.color = '';
         })
@@ -236,17 +214,44 @@ const setSearchFilterOptions = (jsonArray) => {
     return filterManager;
 };
 
-const welcomeScreenn = () => {
+const welcomeScreen = () => {
     const dashboardContainer = document.getElementById('dashboard-container');
     dashboardContainer.textContent = '';
-    const welcomeScreenn = document.createElement('div');
-    welcomeScreenn.className = 'welcome-screen';
+    const welcomeScreen = document.createElement('div');
+    welcomeScreen.className = 'welcome-screen';
+    welcomeScreen.style.display = 'flex';
+    welcomeScreen.style.flexDirection = 'column';
+    welcomeScreen.style.height = '80%';
     const welcomeText = document.createElement('h3');
     welcomeText.textContent = 'Welcome to the Ship Dashboard';
-    welcomeScreenn.appendChild(welcomeText);
-    dashboardContainer.appendChild(welcomeScreenn);
+    welcomeScreen.appendChild(welcomeText);
+    const toSearch = document.createElement('p');
+    toSearch.style.padding=  '32px 16px';
+    toSearch.style.fontSize = '14pt';
+    toSearch.textContent = 'To search for a ship, please use the search bar above';
+    welcomeScreen.appendChild(toSearch);
+    // Create and Append Map Container
+    const mapContainer = document.createElement('div');
+    mapContainer.id = 'map-container';
+    welcomeScreen.appendChild(mapContainer);
+    dashboardContainer.appendChild(welcomeScreen);
 
+    try {
+        const map = initMap('map-container', '1', 7.3521, 300, 2);
+        jsonObject.forEach(ship => {
+            addMarker(map, ship.coordinates.latitude, ship.coordinates.longitude);
+        });
+    } catch (TypeError) {
+        window.onload = function() {
+            const map = initMap('map-container', '1', 7.3521, 300, 2);
+            jsonObject.forEach(ship => {
+                addMarker(map, ship.coordinates.latitude, ship.coordinates.longitude);
+            }
+        )}
+    }
 }
+
+
 const dashBoardScreen = () => {
     const dashboardContainer = document.getElementById('dashboard-container');
 
@@ -316,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = jsonObject;
     const filterManager = setSearchFilterOptions(data);
     const screenState = {
-        WELCOME: () => welcomeScreenn(),
+        WELCOME: () => welcomeScreen(),
         DASHBOARD: () => dashBoardScreen()
     }
     screenState.WELCOME();
