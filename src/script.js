@@ -125,8 +125,8 @@ const appendShipsToList = (jsonArray) => {
         // });
 
         li.addEventListener('click', () => {
-            const pVesselName = document.getElementById('vesselName');
             const pVesselNameKey = document.getElementById('vesselNameKey');
+            const pVesselName = document.getElementById('vesselName');
 
             const pLocationKey = document.getElementById('currentLocationKey')
             const pLocation = document.getElementById('currentLocation')
