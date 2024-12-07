@@ -4,14 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <!-- <link rel="stylesheet" href="hero.css"> -->
-    <link rel="stylesheet" href="details.css">
+    <link rel="stylesheet" href="about.css">
 
     <title>MariVis</title>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGVuWf1oTD7R3m91wRkQV8gqGueSmyPDg&v=weekly&libraries=marker&loading=async" ></script>
     <script src="../data/data.js"></script>
-    <script src="script.js" defer></script>
+
 
 </head>
 
@@ -19,7 +17,6 @@
 
     <nav class="navbar-container">
         <div class="navbar-left">
-
                 <span>MariVis</span>
             </div>
         </div>
@@ -28,27 +25,27 @@
        
                 <label class="popup">
                     <input type="checkbox">
-                    <button id="popup-button" class="popup-button"></button>
+                    <button id="popup-button" class="popup-button">
+                        <a href="index.html">HOME</a>
+                    </button>
                     <nav class="popup-window">
-                        <ul id="filter-by-id">
-                        </ul>
+                        
                     </nav>
                 </label>
             
         </div>
         <div class="navbar-right">
             <div class="profile-icon"></div>
-             <!-- <img src="profile-icon.png" alt="Profile" class="profile-icon"> -->
         </div>
     </nav>
 
 
     <div class="ship-content">
-        <div class="result-container">
-            <ul id="search-results-ul">
-            </ul>
-        </div>
+  
         <div id="dashboard-container" class="dashboard-container">
+            <img class="logopic" src="../assets/mariv-logo.png" alt="MariVis">
+            <h1>About MariVis</h1>
+            <p>Welcome to MariVis, the professional solution for real-time maritime logistics and fleet management. Designed for companies requiring precise oversight, MariVis provides comprehensive data on vessels, including ship names, serial numbers, types, captains, years built, capacities, and exact locations. With our cutting-edge technology, businesses can efficiently monitor their fleets, optimize logistics, and ensure seamless maritime operations.</p>
         </div>
     </div>
     <div class="footer-container">
@@ -72,7 +69,7 @@
             </div>
             <div class="content">
                 <div class="innerLinks">
-                    <a href="">
+                    <a href="index.html">
                         <h6>Home</h6>
                     </a>
                     <a href="about.html">
