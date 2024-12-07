@@ -223,7 +223,7 @@ const welcomeScreen = () => {
     welcomeScreen.style.flexDirection = 'column';
     welcomeScreen.style.height = '80%';
     const welcomeText = document.createElement('h3');
-    welcomeText.textContent = 'Welcome to the Ship Dashboard 🚀';
+    welcomeText.textContent = 'Welcome to the MariVis Dashboard 🚀';
     welcomeScreen.appendChild(welcomeText);
     const toSearch = document.createElement('p');
     toSearch.style.padding=  '32px 16px';
