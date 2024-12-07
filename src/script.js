@@ -223,12 +223,12 @@ const welcomeScreen = () => {
     welcomeScreen.style.flexDirection = 'column';
     welcomeScreen.style.height = '80%';
     const welcomeText = document.createElement('h3');
-    welcomeText.textContent = 'Welcome to the Ship Dashboard';
+    welcomeText.textContent = 'Welcome to the Ship Dashboard 🚀';
     welcomeScreen.appendChild(welcomeText);
     const toSearch = document.createElement('p');
     toSearch.style.padding=  '32px 16px';
     toSearch.style.fontSize = '14pt';
-    toSearch.textContent = 'To search for a ship, please use the search bar above';
+    toSearch.textContent = 'To search for a 🛳️, please use the search bar above 🌊';
     welcomeScreen.appendChild(toSearch);
     // Create and Append Map Container
     const mapContainer = document.createElement('div');
