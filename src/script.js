@@ -79,12 +79,12 @@ const setupPopupListeners = () => {
 };
 
 const updateShipDivDetails = async (ship) => {
-    // const pVesselName = document.getElementById('vesselName');
-    // const pVesselNameKey = document.getElementById('vesselNameKey');
-    // const pLocationKey = document.getElementById('currentLocationKey')
-    // const pLocation = document.getElementById('currentLocation')
-    // const pNameKey = document.getElementById('captainsNameKey')
-    // const pName = document.getElementById('captainsName')
+    const pVesselName = document.getElementById('vesselName');
+    const pVesselNameKey = document.getElementById('vesselNameKey');
+    const pLocationKey = document.getElementById('currentLocationKey')
+    const pLocation = document.getElementById('currentLocation')
+    const pNameKey = document.getElementById('captainsNameKey')
+    const pName = document.getElementById('captainsName')
 
     // pVesselNameKey.textContent = "Ship Name:";
     // pVesselName.textContent = ship.ship_name;
@@ -101,20 +101,20 @@ const updateShipDivDetails = async (ship) => {
     addMarker(mapInstance, ship.coordinates.latitude, ship.coordinates.longitude, ship.ship_name);
 
     const moreDetails = document.getElementById('more-details-btn')
-    const originalTexts = {
-        shipKindKey: document.getElementById('vesselNameKey').textContent,
-        shipKind: document.getElementById('vesselName').textContent,
-        serialNumberKey: document.getElementById('currentLocationKey').textContent,
-        serialNumber: document.getElementById('currentLocation').textContent,
-        yearBuiltKey: document.getElementById('captainsNameKey').textContent,
-        yearBuilt: document.getElementById('captainsName').textContent
-    };
+    // const originalTexts = {
+    //     shipKindKey: document.getElementById('vesselNameKey'),
+    //     shipKind: document.getElementById('vesselName'),
+    //     serialNumberKey: document.getElementById('currentLocationKey'),
+    //     serialNumber: document.getElementById('currentLocation'),
+    //     yearBuiltKey: document.getElementById('captainsNameKey'),
+    //     yearBuilt: document.getElementById('captainsName'),
+    // };
 
     let isDetailShown = false;
     moreDetails.addEventListener('click', () => {
         if (!isDetailShown) {
                     
-            pShipKindkey.textContent = "Ship Kind:";
+            pVesselName.textContent = "Ship Kind:";
             pShipKind.textContent = ship.ship_kind;
         
             pSerialNumberKey.textContent = "Serial Number:"
