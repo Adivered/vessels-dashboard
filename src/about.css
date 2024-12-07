@@ -377,13 +377,18 @@ body {
 
     .about-text {
         width: 90%;
-        max-width: 100%;
-        max-height: 100%;
-        margin: 0 auto;
-        padding: 15px;
-        box-sizing: border-box;
+        text-align: center;
         font-size: 16px;
-        overflow: scroll;
+        line-height: 1.5;
+        margin: 0;
+        overflow: hidden
+    }
+
+    .logopic {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        margin-bottom: 16px;
     }
 
     .navbar-left span {
@@ -422,24 +427,16 @@ body {
         flex: 0.1;
     }
 
-
-
- 
-
-
-    /* Main Section */
-
     .ship-content {
         display: flex;
         flex-direction: column;
-        align-items: baseline;
-        overflow: scroll;
+        align-items: center;
+        justify-content: center;
         width: 100%;
-        padding-bottom: 8px;
-
+        padding: 16px;
+        box-sizing: border-box;
         background: linear-gradient(to bottom, white, var(--blue-grotto));
-        justify-content: space-around;
-        flex-grow: 1;
+        overflow: hidden;
     }
 
 
@@ -481,22 +478,15 @@ body {
     }
 
     .dashboard-container {
-        box-sizing: border-box;
         display: flex;
         flex-direction: column;
-        background: white;
-        gap: 16px;
-        margin-top: 1vh;
-        margin-right: 3vw;
-        margin-bottom: 1vh;
-        padding: 8px 32px;
-        width: 95vw;
-        height: 72vh;
-        justify-content: space-around;
-        -webkit-box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.24);
-        -moz-box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.24);
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        padding: 16px;
         box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.24);
         border-radius: 0.5rem;
+        background: white;
     }
 
     #more-details-btn {
