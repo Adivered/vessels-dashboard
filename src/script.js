@@ -213,6 +213,13 @@ const setSearchFilterOptions = (jsonArray) => {
 const welcomeScreenn = () => {
     const dashboardContainer = document.getElementById('dashboard-container');
     dashboardContainer.textContent = '';
+    const welcomeScreenn = document.createElement('div');
+    welcomeScreenn.className = 'welcome-screen';
+    const welcomeText = document.createElement('h3');
+    welcomeText.textContent = 'Welcome to the Ship Dashboard';
+    welcomeScreenn.appendChild(welcomeText);
+    dashboardContainer.appendChild(welcomeScreenn);
+    
 }
 const dashBoardScreen = () => {
     const dashboardContainer = document.getElementById('dashboard-container');
