@@ -26,6 +26,10 @@ body {
     flex-direction: column;
 }
 
+#logo-link-to-home{
+    text-decoration: none;
+}
+
 .form-container{
     display: flex;
     height: 80vh;
