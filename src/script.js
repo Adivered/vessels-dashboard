@@ -142,6 +142,7 @@ const appendShipsToList = (jsonArray) => {
             dashboardContainer.textContent = '';
             dashBoardScreen();
             updateShipDivDetails(ship);
+          
             document.addEventListener("DOMContentLoaded", () => {
                 const openPopup = document.getElementById("openPopup");
                 const closePopup = document.getElementById("closePopup");
