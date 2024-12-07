@@ -8,10 +8,10 @@
     <!-- <link rel="stylesheet" href="hero.css"> -->
     <link rel="stylesheet" href="details.css">
 
-    <title>Document</title>
+    <title>MariVis</title>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGVuWf1oTD7R3m91wRkQV8gqGueSmyPDg&v=weekly&libraries=marker&loading=async" ></script>
     <script src="../data/data.js"></script>
     <script src="script.js" defer></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGVuWf1oTD7R3m91wRkQV8gqGueSmyPDg&v=weekly&libraries=marker&loading=async" ></script> <!-- Include Google Maps API -->
 
 </head>
 
@@ -25,11 +25,11 @@
             </div>
         </div>
         <div class="navbar-center">
-            <input type="text" id="user-input" name="user-input" placeholder="type here">
+            <input type="text" id="user-input" name="user-input" placeholder="Search MariVis">
        
                 <label class="popup">
                     <input type="checkbox">
-                    <button class="popup-button">Filter</button>
+                    <button id="popup-button" class="popup-button"></button>
                     <nav class="popup-window">
                         <ul id="filter-by-id">
                         </ul>
@@ -49,26 +49,7 @@
             <ul id="search-results-ul">
             </ul>
         </div>
-        <div class="dashboard-container">
-            <h3>Dashboard</h3>
-            <div class="written-details">
-                <div class="vessel-card">
-                    <p id="vesselNameKey" class="details-header"></p>
-                    <p id="vesselName" class="details-son"></p>
-                </div>
-                <div class="vessel-card">
-                    <p id="currentLocationKey" class="details-header"></p>
-                    <p id="currentLocation"></p>
-                </div>
-                <div class="vessel-card">
-                    <p id="captainsNameKey" class="details-header"></p>
-                    <p id="captainsName"></p>
-                </div>
-
-                <button id="more-details-btn">More Details</button>
-
-            </div>
-            <div id="map-container"></div>
+        <div id="dashboard-container" class="dashboard-container">
         </div>
     </div>
     <div class="footer-container">
