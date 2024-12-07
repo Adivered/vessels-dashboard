@@ -5,46 +5,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="details.css">
-
-    <title>MariVis</title>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGVuWf1oTD7R3m91wRkQV8gqGueSmyPDg&v=weekly&libraries=marker&loading=async" ></script>
-    <script src="../data/data.js"></script>
-    <script src="script.js" async defer></script>
-
+    <title>Document</title>
 </head>
 
 <body>
-
     <nav class="navbar-container">
         <div class="navbar-left">
             <span>MariVis</span>
         </div>
+        </div>
         <div class="navbar-center">
             <input type="text" id="user-input" name="user-input" placeholder="Search MariVis">
-       
-                <label class="popup">
-                    <input type="checkbox">
-                    <button id="popup-button" class="popup-button"></button>
-                    <nav class="popup-window">
-                        <ul id="filter-by-id">
-                        </ul>
-                    </nav>
-                </label>
-            
+
+            <label class="popup">
+                <input type="checkbox">
+                <button id="popup-button" class="popup-button"></button>
+                <nav class="popup-window">
+                    <ul id="filter-by-id">
+                    </ul>
+                </nav>
+            </label>
+
         </div>
         <div class="navbar-right">
+            <div class="profile-icon"></div>
         </div>
     </nav>
 
+    <div class="form-container">
+        <form class="form">
+            <p class="title">Contact Us </p>
+            <div class="flex">
+                <label>
+                    <input required="" placeholder="" type="text" class="input" id="first-name">
+                    <span>Firstname</span>
+                </label>
 
-    <div class="ship-content">
-        <div class="result-container">
-            <ul id="search-results-ul">
-            </ul>
-        </div>
-        <div id="dashboard-container" class="dashboard-container">
-        </div>
+                <label>
+                    <input required="" placeholder="" type="text" class="input" id="Last-name">
+                    <span>Lastname</span>
+                </label>
+            </div>
+
+            <label>
+                <input required="" placeholder="" type="email" class="input">
+                <span>Email</span>
+            </label>
+
+            <label>
+                <input required="" placeholder="" type="text" class="input">
+                <span>write to us</span>
+            </label>
+
+            <button class="submit">Submit</button>
+        </form>
     </div>
+
     <div class="footer-container">
         <div class="headlinesDiv">
             <div class="headline">
@@ -66,13 +82,13 @@
             </div>
             <div class="content">
                 <div class="innerLinks">
-                    <a href="">
+                    <a href="./index.html">
                         <h6>Home</h6>
                     </a>
-                    <a href="about.html">
+                    <a href="">
                         <h6>About</h6>
                     </a>
-                    <a href="./contact.html">
+                    <a href="">
                         <h6>Contact</h6>
                     </a>
                 </div>
@@ -88,8 +104,8 @@
                                 alt="instagram icon"></a>
                     </div>
                     <div class="icons">
-                        <a href="https://github.com/Adivered/vessels-dashboard"><img class="iconImages" src="../assets/githubicon.png"
-                                alt="GitHub icon"></a>
+                        <a href="https://github.com/Adivered/vessels-dashboard"><img class="iconImages"
+                                src="../assets/githubicon.png" alt="GitHub icon"></a>
                     </div>
                 </div>
             </div>
