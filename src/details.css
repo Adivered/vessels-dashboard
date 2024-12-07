@@ -26,7 +26,7 @@ body {
     flex-direction: column;
 }
 
-@media(min-width: 640px) {
+/* @media(min-width: 640px) { */
 
 
     /* Navbar styles */
@@ -381,7 +381,7 @@ body {
     .filter-options:hover {
         cursor: pointer;
     }
-}
+/* } */
 
 /* ---------------------------------------------------------------------------------------------------------------------------------- */
 
@@ -436,9 +436,8 @@ body {
     }
 
     #search-results-ul>li {
-
         height: 90%;
-        width: 100%;
+        min-width: 200px;
         padding-left: 3%;
         padding-right: 3%;
         text-overflow: ellipsis;
