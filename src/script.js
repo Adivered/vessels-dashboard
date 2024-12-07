@@ -11,6 +11,26 @@ const getShipByNumber = (jsonArray, key, value) => {
     return jsonArray.filter(obj => obj[key] === value);
 }
 
+const getShipByKey = (jsonArray, key, value) => {
+    // value: string
+    // Need to check few cases: 
+    // 1. obj[key] is a number:
+    // 1. a. is obj[key] is an int or float.
+    // 2. obj[key] is a string -> contains a matching lower case value
+    console.log("Key: ", key, " Value: ", value);
+    if (typeof jsonArray[0][key] === 'number') {
+        if (Number.isInteger(jsonArray[0][key])) {
+            return jsonArray.filter(obj => obj[key] === parseInt(value));
+        } else {
+            return jsonArray.filter(obj => obj[key] === parseFloat(value));
+        }
+    } else if (typeof jsonArray[0][key] === 'string') {
+        return jsonArray.filter(obj => obj[key].toLowerCase().includes(value.toLowerCase()));
+    } else {
+        console.log("Failed log with: ", obj[key]," value:", value);
+    }
+}
+
 const getShipByName = (jsonArray, key, value) => {
     return jsonArray.filter(obj => obj[key].toLowerCase().includes(value.toLowerCase()));
 }
@@ -38,19 +58,19 @@ const getShipByRoute = (jsonArray, value) => {
 };
 
 
-const setSearchFilterOptions = (jsonArray) => {
-    const keys = getAllKeys(jsonArray);
-    let forbidden_keys = ['image', 'price', "ship_name", 'year_built', 'cost_per_unit']
-    const ul = document.getElementById('filter-by-id');
-    keys.forEach(key => {
-        if (!forbidden_keys.includes(key)) {
-            const li = document.createElement('li');
-            li.className = "filter-options"
-            li.textContent = key.toUpperCase().replaceAll("_", " ").replace("(LATITUDE, LONGITUDE)", " ")
-            ul.appendChild(li)
-        }
+const initMap = (element,id, lat, lng, zoom, type) => {
+    const mapInstance = new google.maps.Map(document.getElementById(element), {
+        mapId: id,
+        center: {
+            lat: lat,
+            lng: lng,
+        },
+        zoom: zoom,
+        mapTypeId: type,
     });
-};
+    return mapInstance;
+}
+
 
 const addMarker = (map, lat, lng, title) => {
     const marker = new google.maps.marker.AdvancedMarkerElement({
@@ -143,23 +163,10 @@ const appendShipsToList = (jsonArray) => {
 
             pNameKey.textContent = "Captain's Name:"
             pName.textContent = ship.captain_name;
-
-            const mapInstance = new google.maps.Map(document.getElementById('map-container'), {
-                mapId: ship.serial_number,
-                center: {
-                    lat: ship.coordinates.latitude,
-                    lng: ship.coordinates.longitude
-                },
-                zoom: 6,
-                mapTypeId: google.maps.MapTypeId.HYBRID,
-            });
+            const mapInstance = initMap('map-container', ship.serial_number, ship.coordinates.latitude, 
+                ship.coordinates.longitude, 6, google.maps.MapTypeId.HYBRID);
         
-            addMarker(
-                mapInstance, 
-                ship.coordinates.latitude, 
-                ship.coordinates.longitude, 
-                ship.ship_name
-            );
+            addMarker(mapInstance, ship.coordinates.latitude, ship.coordinates.longitude, ship.ship_name);
 
 
             const moreDetails = document.getElementById('more-details-btn')
@@ -213,20 +220,62 @@ const appendShipsToList = (jsonArray) => {
     });
 };
 
-// Usage example
-// Add listener on page loading
- // Main Initialization Listener
- document.addEventListener('DOMContentLoaded', () => {
-    const data = jsonObject; // Assuming data is loaded from data.js
-    setSearchFilterOptions(data);
+
+const setSearchFilterOptions = (jsonArray) => {
+    const keys = getAllKeys(jsonArray);
+    const forbidden_keys = ['image', 'price', 'year_built', 'cost_per_unit'];
+    const ul = document.getElementById('filter-by-id');
+    const button = document.getElementById('popup-button');
+    
+    const createFilterManager = () => {
+        let filteredKey = 'ship_name';
+        
+        return {
+            getKey: () => filteredKey,
+            setKey: (newKey) => {
+                filteredKey = newKey;
+                button.textContent = filteredKey.toUpperCase().replaceAll("_", " ");
+                return filteredKey;
+            }
+        };
+    };
+    
+    const filterManager = createFilterManager();
+    
+    button.textContent = 'SHIP NAME';
+    keys.forEach(key => {
+        if (!forbidden_keys.includes(key)) {
+            const li = document.createElement('li');
+            li.className = "filter-options";
+            li.textContent = key.toUpperCase().replaceAll("_", " ");
+            
+            li.addEventListener('click', () => {
+                filterManager.setKey(key);
+            });
+            
+            ul.appendChild(li);
+        }
+    });
+    
+    return filterManager;
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const data = jsonObject;
+    const filterManager = setSearchFilterOptions(data);
+    const updateShipsList = (searchTerm) => {
+        const filteredKey = filterManager.getKey();
+        const filteredShips = getShipByKey(data, filteredKey, searchTerm);
+        appendShipsToList(filteredShips);
+    }
+    updateShipsList('');
     document.querySelector('.popup-button').addEventListener('click', function() {
         const checkbox = this.previousElementSibling;
-        checkbox.checked = !checkbox.checked;})
+        checkbox.checked = !checkbox.checked;
+    })
+    
     const searchInput = document.getElementById('user-input');
     searchInput.addEventListener('input', (event) => {
-        const searchTerm = event.target.value;
-        const filteredShips = getShipByName(data, 'ship_name', searchTerm);
-        appendShipsToList(filteredShips);
+        updateShipsList(event.target.value);
     });
-
 });

@@ -8,7 +8,7 @@
     <!-- <link rel="stylesheet" href="hero.css"> -->
     <link rel="stylesheet" href="details.css">
 
-    <title>Document</title>
+    <title>MariVis</title>
     <script src="../data/data.js"></script>
     <script src="script.js" defer></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGVuWf1oTD7R3m91wRkQV8gqGueSmyPDg&v=weekly&libraries=marker&loading=async" ></script> <!-- Include Google Maps API -->
@@ -25,11 +25,11 @@
             </div>
         </div>
         <div class="navbar-center">
-            <input type="text" id="user-input" name="user-input" placeholder="type here">
+            <input type="text" id="user-input" name="user-input" placeholder="Search MariVis">
        
                 <label class="popup">
                     <input type="checkbox">
-                    <button class="popup-button">Filter</button>
+                    <button id="popup-button" class="popup-button"></button>
                     <nav class="popup-window">
                         <ul id="filter-by-id">
                         </ul>
